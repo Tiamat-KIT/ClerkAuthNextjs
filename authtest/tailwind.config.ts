@@ -8,13 +8,12 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
+      extend: {
+        backgroundImage: {
+          'morning': "url('/publicdomainq-0041781jae.jpg')",
+          'night': "url('/publicdomainq-0060524jyp.jpg')",
+        }
+      }
   },
   plugins: [],
 }

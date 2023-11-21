@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="ja">
-        <body className={`${inter.className} dark:bg-d-theme`}>
+        <body className={`${inter.className} bg-morning dark:bg-night	bg-cover min-h-screen`}>
           <header className='flex justify-between	p-5 dark:bg-black dark:text-white'>
             
             <ThemeSelect />
