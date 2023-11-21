@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { ClerkProvider, SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import { dark } from '@clerk/themes';
-import React from 'react';
-import ThemeChange from '@/themeChange';
+import React, { Suspense } from 'react';
+import ThemeSelect from '@/themeChange';
+import { types } from 'util';
+import Image from 'next/image';
+import LoginSVG from "../../public/6032_line.svg"
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,24 +22,49 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
-  const Theme = () => {
-    if(typeof window !== "undefined"){
-      return document.getElementById("html-root")?.classList.value
+  const mediaQueryLlistener = (e: MediaQueryListEvent) => {
+    if (localStorage.theme === 'system') {
+      if (e.matches) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
     }
+  }
+  if (typeof window !== 'undefined') {
+    document.addEventListener("load",() => {
+      if(!("theme" in localStorage) || localStorage.theme === "system"){
+        if(window.matchMedia('(prefers-color-scheme: dark').matches){
+          document.documentElement.classList.add('dark')
+        }
+        localStorage.setItem("theme","system")
+      }else if(localStorage.theme === "dark"){
+        localStorage.theme === "dark"
+      }else {
+        document.documentElement.classList.remove("dark")
+      }
+      window.matchMedia("(prefers-color-scheme:dark)").addEventListener("change",mediaQueryLlistener)
+      // https://zenn.dev/azukiazusa/articles/bee71756d66679 も参考になったけど採用しなかった
+    })
   }
   return (
     <ClerkProvider>
-      <html lang="ja" id='html-root'>
-        <body className={inter.className}>
-          <header className='flex justify-between	p-5'>
-            <h1 className='text-2xl'>Test Application</h1>
-            <ThemeChange />
+      <html lang="ja">
+        <body className={`${inter.className} dark:bg-d-theme`}>
+          <header className='flex justify-between	p-5 dark:bg-black dark:text-white'>
+            
+            <ThemeSelect />
             <SignedIn>
+              <h1 className='text-2xl'>Dreami'n Board!</h1>
               <UserButton />
             </SignedIn>
             <SignedOut>
-              <SignInButton mode='modal' />
+              <Suspense fallback={<div>Loading...</div>}>
+                <h1 className='text-2xl'>Welcome BedRoom!</h1>
+                <SignUpButton mode='modal'>
+                  <button>Join BedRoom!</button>
+                </SignUpButton>
+              </Suspense>
             </SignedOut>
           </header>
           {children}
