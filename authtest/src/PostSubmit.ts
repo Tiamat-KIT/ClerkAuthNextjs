@@ -1,8 +1,9 @@
 "use server"
-export default async function submit(formData: FormData){
+import { PostFormFields } from "./components/form"
+export default async function submit(formData: PostFormFields){
     "use server"
     const submitData = {
-        Param: formData.get("param"),
+        Param: formData.param,
         PostedDate: Date.now(),
         LikedCount: 0
     }
