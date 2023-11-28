@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+import {createVanillaExtractPlugin} from "@vanilla-extract/next-plugin"
+const withVanillaExtract = createVanillaExtractPlugin()
+
 const nextConfig = {
     env:{
         NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: "pk_test_d29uZHJvdXMtY3JhbmUtMi5jbGVyay5hY2NvdW50cy5kZXYk",
@@ -6,4 +9,4 @@ const nextConfig = {
     }
 }
 
-module.exports = nextConfig
+module.exports = withVanillaExtract(nextConfig)

@@ -12,6 +12,8 @@
     "@clerk/nextjs": "^4.27.1",
     "@clerk/themes": "^1.7.9",
     "@hookform/resolvers": "^3.3.2",
+    "@vanilla-extract/css": "^1.14.0",
+    "@vanilla-extract/next-plugin": "^2.3.2",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
