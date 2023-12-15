@@ -1,4 +1,4 @@
-export default function PostData(){
+export default function PostData({PostText}:{PostText: any}){
     //function PostCard(){
         return (
             <>
@@ -11,10 +11,8 @@ export default function PostData(){
                         </div>
                         <div className="pl-5 basis-10/12">
                                 <div className="bg-white/10 rounded-lg">
-                                    <p className="h-[3.25rem] text-md">
-                                        真っ暗な空間の中で上半身だけコウメ太夫のコスプレした<br />
-                                        江頭2:50にﾁｸｼｮ~!!って叫ばれながら追いかけられる夢見た。
-                                        くそ怖かった
+                                    <p className="h-[3.25rem] text-md text-black dark:text-white newcss-autophrase">
+                                        {PostText}
                                     </p>
                                 </div>
                             </div>

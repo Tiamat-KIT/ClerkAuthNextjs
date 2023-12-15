@@ -14,3 +14,8 @@
     /* .blue-button {@apply font-bold p-1 border-t border-l border-gray-300 rounded-full bg-blue-300	shadow-lg hover:shadow-inner hover:bg-white/30;} */
     select {@apply rounded-md dark:bg-gray-600 dark:text-white appearance-none text-center divide-black;}
   }
+
+textarea {
+  form-sizing: content;
+  /*このCSSプロパティはいいですね */
+}
