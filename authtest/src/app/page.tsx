@@ -1,4 +1,5 @@
 "use server"
+import {tw} from "typewind"
 import PostForm from '@/components/form'
 import { SignIn, SignInButton, SignInWithMetamaskButton, SignOutButton, SignUp, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
@@ -10,8 +11,8 @@ export default async function Home() {
   
   return (
     <>
-      <h1 className='text-2xl'>Root Page</h1>
-        <div className='container mx-auto p-4'>
+      <h1 className={tw.text_["responsive"]}>Root Page</h1>
+        <div className={tw.container.mx_auto.p_4}>
           <PostForm /* submit={submit} *//>  
           <div className='pt-5' />
           <PostData PostText={PostTexts}/>
