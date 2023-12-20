@@ -12,9 +12,9 @@ export default async function Home() {
   return (
     <>
       <h1 className={tw.text_["calc((100vw - 375px) * 10 / 905 + 20px)"]}>Root Page</h1>
-        <div className={tw.container.mx_auto.p_4}>
+        <div className={tw.mx_auto.p_4.container}>
           <PostForm /* submit={submit} *//>  
-          <div className='pt-5' />
+          <div className={tw.pt_5} />
           <PostData PostText={PostTexts}/>
         </div>
     </>
