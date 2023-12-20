@@ -1,6 +1,6 @@
-import type { Config } from 'tailwindcss'
-import {typewindTransforms} from "typewind/transform"
-const config: Config = {
+// const Config = require('tailwindcss')
+const typewindTransforms = require("typewind/transform")
+module.exports= {
   content: {files:[
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -21,7 +21,6 @@ const config: Config = {
   },
   plugins: [require("daisyui")],
 }
-export default config
 
 /**
  * BreakPointの最小値を375として
