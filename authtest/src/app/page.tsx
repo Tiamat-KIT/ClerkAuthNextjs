@@ -11,7 +11,7 @@ export default async function Home() {
   
   return (
     <>
-      <h1 className={tw.text_["responsive"]}>Root Page</h1>
+      <h1 className={tw.text_["calc((100vw - 375px) * 10 / 905 + 20px)"]}>Root Page</h1>
         <div className={tw.container.mx_auto.p_4}>
           <PostForm /* submit={submit} *//>  
           <div className='pt-5' />
